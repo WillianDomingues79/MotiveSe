@@ -1,7 +1,15 @@
 <resources>
     <string name="app_name">MotiveSe</string>
-    <string name="Texto_Principal">Texto de exemplo a ser criado</string>
-    <string name="nova_frase">Nova Frase</string>
+    <string name="phrases_motivation">Sabia que você pode se tornar um VIADÃO de grau maior?</string>
+    <string name="new_phrase">Nova Frase</string>
+    <string name="your_name">Qual seu nome?</string>
+    <string name="user">Usuário</string>
+    <string name="phrase">Frase</string>
+    <string name="save">Salvar</string>
+    <string name="lets_begin">Vamos Começar?</string>
+    <string name="phrases_all">Todas as frases</string>
+    <string name="phrases_morning">Frases para manhã</string>
+    <string name="validation_mandatory_name">Informe seu nome</string>
     <string name="infinite">Infinite</string>
     <string name="happy">Happy</string>
     <string name="sunny">Sunny</string>
