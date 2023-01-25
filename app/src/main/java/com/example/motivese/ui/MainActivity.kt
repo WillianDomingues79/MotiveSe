@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
 import com.example.motivese.R
+import com.example.motivese.data.Mock
 import com.example.motivese.databinding.ActivityMainBinding
 import com.example.motivese.infra.MotivacaoConstants
 import com.example.motivese.infra.SecurityPreferences
@@ -13,7 +14,7 @@ import com.example.motivese.databinding.ActivityUserBinding
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityMainBinding
-    private var categoryId = 1
+    private var categoryId = 1 //Inicia com 1 para trazer todos
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         handleFilter(R.id.image_all)
         handleUserName()
+        handleNextPhrase()
 
         binding.buttonNewphrase.setOnClickListener(this)
         binding.imageAll.setOnClickListener(this)
@@ -36,10 +38,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(view: View) {
         if (view.id == R.id.button_newphrase) {
-            var s = ""
-        }else if (view.id in listOf(R.id.image_all, R.id.imageHappy, R.id.imageSunny)){
+            handleNextPhrase()
+        }else if (view.id in listOf(R.id.image_all, R.id.imageHappy, R.id.imageSunny)){ //Muda os botões e o valor do categoryID
             handleFilter(view.id)
         }
+    }
+
+    private fun handleNextPhrase(){
+        binding.textPhrase.text = Mock().getPhrase(categoryId)
     }
 
     private fun handleFilter(id : Int) {
@@ -50,19 +56,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (id) {
             R.id.image_all -> {
                 binding.imageAll.setColorFilter(ContextCompat.getColor(this, R.color.white))
-                categoryId = MotivacaoConstants.FILTER.ALL
+                categoryId = MotivacaoConstants.FILTER.ALL //Muda para 1
             }
             R.id.imageHappy -> {
                 binding.imageHappy.setColorFilter(ContextCompat.getColor(this, R.color.white))
-                categoryId = MotivacaoConstants.FILTER.HAPPY
+                categoryId = MotivacaoConstants.FILTER.HAPPY // Muda para 2
             }
             R.id.imageSunny -> {
                 binding.imageSunny.setColorFilter(ContextCompat.getColor(this, R.color.white))
-                categoryId = MotivacaoConstants.FILTER.SUNNY
+                categoryId = MotivacaoConstants.FILTER.SUNNY //Muda para 3
             }
         }
     }
 
+    //Seta nome do usuário
     private fun handleUserName(){
         val name = SecurityPreferences(this).getString(MotivacaoConstants.KEY.USER_NAME)
         binding.textUserName.text = "Olá, ${name}!"
