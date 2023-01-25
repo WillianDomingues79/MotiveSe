@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <LinearLayout
         android:id="@+id/linear_menu"
@@ -20,14 +20,15 @@
 
 
         <ImageView
+            android:id="@+id/image_all"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
             android:src="@drawable/ic_all_incluse"
-            android:contentDescription="@string/infinite"
-            app:tint="@color/white" />
+            android:contentDescription="@string/infinite" />
 
         <ImageView
+            android:id="@+id/imageHappy"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -35,6 +36,7 @@
             android:contentDescription="@string/happy" />
 
         <ImageView
+            android:id="@+id/imageSunny"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -43,6 +45,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/text_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/cabin"
