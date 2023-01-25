@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MotiveSe</string>
+    <string name="Texto_Principal">Texto de exemplo a ser criado</string>
+    <string name="nova_frase">Nova Frase</string>
+    <string name="infinite">Infinite</string>
+    <string name="happy">Happy</string>
+    <string name="sunny">Sunny</string>
 </resources>
