@@ -1,5 +1,6 @@
 package com.example.motivese.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -26,14 +27,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         supportActionBar?.hide()
 
         handleFilter(R.id.image_all)
-        handleUserName()
+
         handleNextPhrase()
 
         binding.buttonNewphrase.setOnClickListener(this)
         binding.imageAll.setOnClickListener(this)
         binding.imageHappy.setOnClickListener(this)
         binding.imageSunny.setOnClickListener(this)
+        binding.textUserName.setOnClickListener(this)
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        handleUserName()
     }
 
     override fun onClick(view: View) {
@@ -41,6 +48,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             handleNextPhrase()
         }else if (view.id in listOf(R.id.image_all, R.id.imageHappy, R.id.imageSunny)){ //Muda os botões e o valor do categoryID
             handleFilter(view.id)
+        }else if (view.id == R.id.text_user_name) {
+            startActivity(Intent(this,UserActivity::class.java))
         }
     }
 

@@ -25,10 +25,9 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
 
         binding.buttonSave.setOnClickListener(this)
 
-        verifyUserName()
-
-
     }
+
+
 
     override fun onClick(v: View) {
         if (v.id == R.id.button_save){
@@ -50,7 +49,7 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
 
             SecurityPreferences(this).storeString(MotivacaoConstants.KEY.USER_NAME, name)
 
-            startActivity(Intent(this, MainActivity::class.java))
+            //startActivity(Intent(this, MainActivity::class.java))
             finish()
         }else{
             Toast.makeText(this, R.string.validation_mandatory_name, Toast.LENGTH_SHORT).show()
